@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void reverseString(string &str)
+{
+	for (int i = 0; i < str.size() / 2; ++i) {
+		std::swap(str[i], str[str.size() - i - 1]);
+	}
+}
+
+void reverseSentence(string &sentence)
+{
+	int k = 0;
+	reverseString(sentence);
+	sentence += ' ';
+	size_t space = 0;
+	while (1)
+	{
+		k = space;
+		space = sentence.find(" ", k + 1);
+		string s = sentence.substr(k, space - k);
+		reverseString(s);
+		if (space == sentence.size() - 1) {
+			s.pop_back();
+		}
+		if (k == 0) {
+			cout << s << ' ';
+		}
+		else 
+			cout << s;
+		if (space == sentence.size() - 1)
+			break;
+	}
+}
+int main()
+{
+	string sentence;
+	std::getline(cin, sentence);
+	reverseSentence(sentence);
+	cout << endl;
+	return 0;
+}
