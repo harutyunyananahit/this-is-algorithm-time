@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    int num, integer=0;
+    cin>>num;
+    while(num!=0)
+    {
+        if( num % 10 == 0 || num % 10 == 4 || num % 10 == 6 || num % 10 == 9 )
+        {
+            integer += 1;
+        }
+        if( num % 10 == 8 )
+        {
+             integer += 2;
+        }
+        num /= 10; 
+    }
+    
+    cout << integer;
+}
